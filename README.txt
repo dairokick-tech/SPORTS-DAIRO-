@@ -20,3 +20,6 @@ IMPORTANTE:
 - WhatsApp no permite que una página web adjunte automáticamente un archivo al chat por seguridad del navegador; el cliente puede tener que seleccionar nuevamente la misma constancia en WhatsApp.
 - El código intenta guardar la constancia en Supabase Storage usando el bucket "payment-proofs". Si ese bucket no existe o las políticas RLS no permiten subir archivos, el pedido sigue funcionando localmente, pero para ver la constancia desde otro dispositivo debes crear ese bucket y sus políticas.
 - No pongas credenciales privadas de Supabase/SUNAT en el HTML.
+
+
+PAGO: El checkout para clientes usa únicamente Yape y muestra el QR proporcionado por el propietario. Archivo: qr-yape.png.

@@ -1,95 +1,151 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SPORTS DAIRO</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPORTS DAIRO | Moda que se mueve contigo.</title>
+<meta name="description" content="SPORTS DAIRO - Zapatillas, ropa y accesorios. Compra por WhatsApp.">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#111}
-header{background:#080808;color:#fff;padding:10px 14px}.head{max-width:1200px;margin:auto;display:flex;align-items:center;gap:12px}.head img{width:58px;height:58px;object-fit:contain;background:#fff;border-radius:9px}.brand{font-size:21px;font-weight:900}.tag{font-size:12px;color:#ccc}
-nav{background:#fff;border-bottom:1px solid #ddd;display:flex;gap:7px;padding:8px 10px;overflow:auto;position:sticky;top:0;z-index:10}.nav{padding:10px 12px;border:1px solid #ddd;background:#fff;border-radius:9px;font-weight:700;white-space:nowrap}.nav.active{background:#e10600;color:#fff;border-color:#e10600}
-main{max-width:1200px;margin:auto;padding:16px}.section{display:none}.section.active{display:block}.hero{background:linear-gradient(135deg,#080808,#292929);color:#fff;border-radius:16px;padding:25px 18px;margin-bottom:16px}.hero h1{margin:0 0 7px}.hero p{margin:0;color:#ddd}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:13px}.card,.panel,.stat{background:#fff;border:1px solid #e2e2e2;border-radius:13px}.card{overflow:hidden}.pic{height:180px;background:#eee;display:flex;align-items:center;justify-content:center}.pic img{width:100%;height:100%;object-fit:cover}.ph{color:#888;font-size:13px}.body{padding:12px}.name{font-weight:800;min-height:38px;margin:6px 0}.price{font-size:21px;font-weight:900}.btn,.order{padding:11px;border:0;border-radius:9px;background:#e10600;color:#fff;font-weight:900;cursor:pointer}.order{width:100%;margin-top:9px}.panel{padding:15px;margin-bottom:15px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.stat{padding:15px}.stat b{display:block;font-size:24px;margin-top:6px}
-.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px}label{font-size:12px;font-weight:700}input,select,textarea{width:100%;padding:11px;border:1px solid #ccc;border-radius:8px;margin:5px 0 10px}textarea{min-height:80px}
-.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:9px;border-bottom:1px solid #eee;text-align:left;font-size:13px;white-space:nowrap}.badge{padding:5px 8px;border-radius:999px;background:#eee;font-size:11px;font-weight:700}.green{background:#dff5e4}.yellow{background:#fff0bd}.red{background:#ffdada}
-.modal{display:none;position:fixed;inset:0;background:#0009;z-index:50;padding:15px}.box{background:#fff;max-width:440px;margin:5vh auto;padding:18px;border-radius:15px}.close{float:right;border:0;background:none;font-size:22px}.wide{max-width:700px}
-footer{background:#080808;color:#fff;text-align:center;padding:24px;margin-top:30px;font-size:13px}
-.small{font-size:12px;color:#666}.right{float:right}
-@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}.stat b{font-size:19px}}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#111}
+.top{background:#050505;color:#fff;text-align:center;padding:8px;font-size:13px}
+header{background:#050505;color:#fff;position:sticky;top:0;z-index:5;border-bottom:1px solid #222}
+.nav{max-width:1150px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:18px}
+.logo{height:76px;width:auto;object-fit:contain}
+.brand{font-weight:900;font-size:20px;line-height:1.05} .brand span{color:#e50914}
+.menu{margin-left:auto;display:flex;gap:18px;align-items:center;font-size:14px}
+.menu a{color:#fff;text-decoration:none;font-weight:700}
+.search{max-width:1150px;margin:0 auto;padding:0 16px 14px}
+.searchbox{display:flex;background:#fff;border-radius:7px;overflow:hidden}
+.searchbox input{width:100%;border:0;padding:13px 14px;font-size:15px;outline:0}
+.hero{background:linear-gradient(115deg,#050505,#1a1a1a);color:#fff;padding:38px 16px}
+.hero-inner{max-width:1150px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.hero h1{font-size:clamp(30px,6vw,58px);margin:0 0 10px;font-weight:950;text-transform:uppercase}
+.hero h1 span{color:#e50914} .hero p{font-size:18px;color:#ddd;margin:0 0 18px}
+.btn{display:inline-block;background:#e50914;color:#fff;text-decoration:none;padding:13px 18px;border-radius:6px;font-weight:800}
+.hero-badge{font-size:60px;font-weight:900;color:#e50914;transform:rotate(-7deg)}
+main{max-width:1150px;margin:auto;padding:28px 16px 50px}
+.categories{display:flex;gap:10px;overflow:auto;padding-bottom:20px}
+.cat{background:#fff;border:1px solid #ddd;padding:11px 17px;border-radius:30px;white-space:nowrap;font-weight:800}
+.cat.active{background:#e50914;color:#fff;border-color:#e50914}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}
+.section-head h2{margin:0;font-size:28px} .section-head p{margin:4px 0 0;color:#666}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px #00000012;display:flex;flex-direction:column}
+.photo{height:235px;background:linear-gradient(145deg,#111,#292929);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff}
+.photo span{font-size:72px} .photo small{color:#bbb;margin-top:5px}
+.info{padding:16px} .tag{color:#e50914;font-size:11px;font-weight:900;letter-spacing:1px}
+.card h3{margin:6px 0 4px;font-size:18px} .card p{margin:0 0 12px;color:#666;font-size:13px}
+.prices{display:flex;gap:10px;align-items:center;margin-bottom:14px} del{color:#888;font-size:13px} strong{font-size:21px}
+.buy{display:block;text-align:center;background:#111;color:#fff;text-decoration:none;padding:12px;border-radius:6px;font-weight:800}
+.buy:hover{background:#e50914}
+.empty{display:none;text-align:center;padding:35px;background:#fff;border-radius:10px}
+footer{background:#050505;color:#fff;text-align:center;padding:28px 16px} footer strong{font-size:20px} footer span{color:#e50914}
+@media(max-width:800px){.menu a:not(:last-child){display:none}.grid{grid-template-columns:repeat(2,1fr)}.hero-badge{display:none}.logo{height:62px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.brand{font-size:16px}.nav{gap:8px}}
 </style>
 </head>
 <body>
-<header><div class="head"><img src="logo.png"><div><div class="brand">SPORTS DAIRO</div><div class="tag">Moda que se mueve contigo.</div></div></div></header>
-<nav id="nav"></nav>
-<main>
-<section id="tienda" class="section active">
-<div class="hero"><h1>Compra fácil</h1><p>Elige tu producto, talla y cantidad. Tu pedido se envía por WhatsApp.</p></div>
-<div class="grid" id="shop"></div>
+<div class="top">🔥 OFERTAS SPORTS DAIRO • Compra fácil por WhatsApp</div>
+<header>
+  <div class="nav">
+    <img class="logo" src="logo.png" alt="SPORTS DAIRO">
+    <div class="brand">SPORTS <span>DAIRO</span><br><small>Moda que se mueve contigo.</small></div>
+    <nav class="menu"><a href="#productos">Zapatillas</a><a href="#productos">Ropa</a><a href="#productos">Accesorios</a><a href="https://wa.me/51910462487" target="_blank">WhatsApp</a></nav>
+  </div>
+  <div class="search"><div class="searchbox"><input id="search" placeholder="¿Qué estás buscando?"></div></div>
+</header>
+
+<section class="hero">
+ <div class="hero-inner">
+  <div><h1>Muévete con <span>estilo.</span></h1><p>Descubre tu próximo par en SPORTS DAIRO.</p><a class="btn" href="#productos">VER PRODUCTOS</a></div>
+  <div class="hero-badge">SD</div>
+ </div>
 </section>
 
-<section id="dashboard" class="section"><h2>📊 Dashboard</h2><div class="stats">
-<div class="stat">Ventas<b id="sVentas">S/ 0.00</b></div><div class="stat">Pedidos<b id="sPedidos">0</b></div><div class="stat">Clientes<b id="sClientes">0</b></div><div class="stat">Por cobrar<b id="sCobrar">S/ 0.00</b></div><div class="stat">Stock<b id="sStock">0</b></div>
-</div><div class="panel"><h3>Resumen</h3><p id="resumen">Todavía no hay movimientos registrados.</p></div></section>
-
-<section id="registrar" class="section"><h2>📝 Registrar</h2>
-<div class="panel"><h3>Registrar producto</h3><div class="form"><div><label>Producto</label><input id="rpName"></div><div><label>Precio de venta</label><input id="rpPrice" type="number" step=".01"></div><div><label>Stock</label><input id="rpStock" type="number"></div></div><button class="btn" onclick="addProduct()">Guardar producto</button></div>
-<div class="panel"><h3>Registrar cliente</h3><div class="form"><div><label>Nombre</label><input id="rcName"></div><div><label>WhatsApp</label><input id="rcPhone"></div><div><label>Dirección</label><input id="rcAddress"></div></div><button class="btn" onclick="addClient()">Guardar cliente</button></div></section>
-
-<section id="ventas" class="section"><h2>💰 Ventas</h2><div class="panel"><div class="form"><div><label>Producto</label><select id="saleProd"></select></div><div><label>Cliente</label><input id="saleClient"></div><div><label>Cantidad</label><input id="saleQty" type="number" min="1" value="1"></div><div><label>Forma</label><select id="saleType"><option>Contado</option><option>Crédito</option></select></div></div><button class="btn" onclick="addSale()">Registrar venta</button></div><div class="panel"><div class="tablewrap"><table><thead><tr><th>Fecha</th><th>Producto</th><th>Cliente</th><th>Total</th><th>Forma</th></tr></thead><tbody id="sales"></tbody></table></div></div></section>
-
-<section id="compras" class="section"><h2>🛒 Compras</h2><div class="panel"><div class="form"><div><label>Proveedor</label><input id="buyProv"></div><div><label>Producto</label><input id="buyProd"></div><div><label>Cantidad</label><input id="buyQty" type="number" value="1"></div><div><label>Costo total</label><input id="buyCost" type="number" step=".01"></div></div><button class="btn" onclick="addPurchase()">Registrar compra</button></div><div class="panel"><div class="tablewrap"><table><thead><tr><th>Fecha</th><th>Proveedor</th><th>Producto</th><th>Cantidad</th><th>Costo</th></tr></thead><tbody id="purchases"></tbody></table></div></div></section>
-
-<section id="pedidos" class="section"><h2>📦 Pedidos</h2><div class="panel"><div class="tablewrap"><table><thead><tr><th>Fecha</th><th>Cliente</th><th>Producto</th><th>Talla</th><th>Cant.</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="orders"></tbody></table></div></div></section>
-
-<section id="clientes" class="section"><h2>👥 Clientes</h2><div class="panel"><div class="tablewrap"><table><thead><tr><th>Nombre</th><th>WhatsApp</th><th>Dirección</th><th>Compras</th><th>Deuda</th></tr></thead><tbody id="clients"></tbody></table></div></div></section>
-
-<section id="inventario" class="section"><h2>👟 Inventario</h2><div class="panel"><div class="tablewrap"><table><thead><tr><th>Producto</th><th>Precio</th><th>Stock</th><th>Estado</th></tr></thead><tbody id="inventory"></tbody></table></div></div></section>
-
-<section id="contable" class="section"><h2>🧾 Contable</h2><div class="stats"><div class="stat">Ingresos<b id="ctIn">S/ 0.00</b></div><div class="stat">Compras<b id="ctBuy">S/ 0.00</b></div><div class="stat">Créditos<b id="ctCr">S/ 0.00</b></div><div class="stat">Resultado<b id="ctRes">S/ 0.00</b></div></div></section>
-
-<section id="creditos" class="section"><h2>💳 Ventas a crédito</h2><div class="panel"><div class="tablewrap"><table><thead><tr><th>Cliente</th><th>Producto</th><th>Total</th><th>Estado</th><th>Acción</th></tr></thead><tbody id="credits"></tbody></table></div></div></section>
-
-<section id="envios" class="section"><h2>🚚 Gestión de envíos</h2><div class="panel"><div class="tablewrap"><table><thead><tr><th>Pedido</th><th>Cliente</th><th>Producto</th><th>Estado</th><th>Cambiar</th></tr></thead><tbody id="shipping"></tbody></table></div></div></section>
-
-<section id="admin" class="section"><h2>🔐 Administrador</h2><div class="panel"><p><b>Modo gratis:</b> los datos de este prototipo se guardan en el navegador de este dispositivo.</p><button class="btn" onclick="exportData()">💾 Descargar respaldo</button> <button class="secondary" onclick="resetData()">Restablecer datos</button><p class="small">Para que el acceso sea realmente privado y funcione desde cualquier celular/computadora, después habrá que conectar una base de datos y autenticación.</p></div></section>
+<main>
+ <div class="categories">
+   <div class="cat active">👟 Zapatillas</div><div class="cat">👕 Ropa</div><div class="cat">🎒 Accesorios</div><div class="cat">🔥 Ofertas</div>
+ </div>
+ <section id="productos">
+  <div class="section-head"><div><h2>Zapatillas</h2><p>Precios SPORTS DAIRO con 25% sobre el precio de referencia.</p></div></div>
+  <div class="grid" id="grid">
+    <article class="card" data-search="r18 stellar zapatillas de fútbol hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>R18 Stellar</h3>
+        <p>Zapatillas de Fútbol Hombre</p>
+        <div class="prices"><del>S/ 75.90</del><strong>S/ 94.88</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar R18 Stellar por S/ 94.88. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="r18 new york zapatillas urbanas hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>R18 New York</h3>
+        <p>Zapatillas Urbanas Hombre</p>
+        <div class="prices"><del>S/ 181.90</del><strong>S/ 227.38</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar R18 New York por S/ 227.38. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="renzo renzini rch-wo007 zapatillas casuales hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>Renzo Renzini RCH-WO007</h3>
+        <p>Zapatillas Casuales Hombre</p>
+        <div class="prices"><del>S/ 113.90</del><strong>S/ 142.38</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar Renzo Renzini RCH-WO007 por S/ 142.38. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="renzo renzini rch-wo009 zapatillas casuales hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>Renzo Renzini RCH-WO009</h3>
+        <p>Zapatillas Casuales Hombre</p>
+        <div class="prices"><del>S/ 67.90</del><strong>S/ 84.88</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar Renzo Renzini RCH-WO009 por S/ 84.88. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="r18 kyoto zapatillas urbanas hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>R18 Kyoto</h3>
+        <p>Zapatillas Urbanas Hombre</p>
+        <div class="prices"><del>S/ 117.90</del><strong>S/ 147.38</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar R18 Kyoto por S/ 147.38. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="r18 mantaro trail zapatillas outdoor hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>R18 Mantaro Trail</h3>
+        <p>Zapatillas Outdoor Hombre</p>
+        <div class="prices"><del>S/ 167.90</del><strong>S/ 209.88</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar R18 Mantaro Trail por S/ 209.88. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    </div>
+  <div class="empty" id="empty">No encontramos ese producto.</div>
+ </section>
 </main>
-<footer>SPORTS DAIRO · Moda que se mueve contigo. · WhatsApp +51 910 462 487</footer>
 
-<div class="modal" id="modal"><div class="box"><button class="close" onclick="closeOrder()">✕</button><h2>🛍️ Hacer pedido</h2><div id="chosen"></div><label>Nombre</label><input id="oName"><label>Talla</label><select id="oSize"><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option></select><label>Cantidad</label><input id="oQty" type="number" min="1" value="1"><button class="btn" style="width:100%" onclick="sendOrder()">📲 Enviar por WhatsApp</button></div></div>
-
+<footer><strong>SPORTS <span>DAIRO</span></strong><br><small>Moda que se mueve contigo. • WhatsApp +51 910 462 487</small></footer>
 <script>
-const KEY="SPORTS_DAIRO_V1";
-const seed=[
-["R18 Stellar",94.88,10],["R18 New York",227.38,10],["Renzo Renzini RCH-WO007",142.38,10],["Renzo Renzini RCH-WO009",84.88,10],["R18 Kyoto",147.38,10],["R18 Mantaro Trail",209.88,10],["Adidas Switch Move U ID8329",157.38,10],["Adidas Litecourt JI2166",174.88,10],["Adidas Goletto IX TF JR2356",169.88,10],["Adidas Ultra Energy M JQ0674",148.63,10],["Adidas Goletto IX TF IH0085",169.88,10],["Adidas Litecourt IH0856",174.88,10],["Adidas Latin Run 2 M JQ8648",209.88,10],["Adidas F50 Messi Club TF KK1377",323.75,10],["R18 Lima",174.88,10],["R18 Lisboa",174.88,10],["R18 Miami",192.38,10],["R18 Boston",124.88,10],["Puma Rickie Classic 394251 14",179.88,10],["Adidas Lite Racer 4.0 IE6133",134.88,10]];
-let d=JSON.parse(localStorage.getItem(KEY)||"null")||{products:seed,sales:[],purchases:[],orders:[],clients:[],credits:[]}, selected=0;
-const $=id=>document.getElementById(id), money=n=>"S/ "+Number(n||0).toFixed(2);
-function save(){localStorage.setItem(KEY,JSON.stringify(d));render()}
-function renderNav(){let items=[["tienda","🛍️ Tienda"],["dashboard","📊 Dashboard"],["registrar","📝 Registrar"],["ventas","💰 Ventas"],["compras","🛒 Compras"],["pedidos","📦 Pedidos"],["clientes","👥 Clientes"],["inventario","👟 Inventario"],["contable","🧾 Contable"],["creditos","💳 Créditos"],["envios","🚚 Envíos"],["admin","🔐 Admin"]];$("nav").innerHTML=items.map(x=>`<button class="nav" data-s="${x[0]}">${x[1]}</button>`).join("");document.querySelectorAll(".nav").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));$(b.dataset.s).classList.add("active")}) ;document.querySelector(".nav").classList.add("active")}
-function render(){
- $("shop").innerHTML=d.products.map((p,i)=>`<article class="card"><div class="pic">${i===0?'<img src="zapatilla-urb.jpg">':'<span class="ph">Imagen del producto</span>'}</div><div class="body"><div class="name">${p[0]}</div><div class="price">${money(p[1])}</div><div class="small">Stock: ${p[2]}</div><button class="order" onclick="openOrder(${i})">🛍️ Hacer pedido</button></div></article>`).join("");
- $("saleProd").innerHTML=d.products.map((p,i)=>`<option value="${i}">${p[0]} — ${money(p[1])}</option>`).join("");
- $("sales").innerHTML=d.sales.map(s=>`<tr><td>${s.date}</td><td>${s.product}</td><td>${s.client}</td><td>${money(s.total)}</td><td>${s.type}</td></tr>`).join("");
- $("purchases").innerHTML=d.purchases.map(x=>`<tr><td>${x.date}</td><td>${x.prov}</td><td>${x.prod}</td><td>${x.qty}</td><td>${money(x.cost)}</td></tr>`).join("");
- $("orders").innerHTML=d.orders.map((o,i)=>`<tr><td>${o.date}</td><td>${o.client}</td><td>${o.product}</td><td>${o.size}</td><td>${o.qty}</td><td><span class="badge ${o.status==="Entregado"?"green":o.status==="Cancelado"?"red":"yellow"}">${o.status}</span></td><td><button class="secondary" onclick="nextOrder(${i})">Cambiar</button></td></tr>`).join("");
- $("clients").innerHTML=d.clients.map(c=>`<tr><td>${c.name}</td><td>${c.phone}</td><td>${c.address}</td><td>${c.purchases||0}</td><td>${money(c.debt||0)}</td></tr>`).join("");
- $("inventory").innerHTML=d.products.map(p=>`<tr><td>${p[0]}</td><td>${money(p[1])}</td><td>${p[2]}</td><td><span class="badge ${p[2]<=0?"red":p[2]<=3?"yellow":"green"}">${p[2]<=0?"Agotado":p[2]<=3?"Stock bajo":"Disponible"}</span></td></tr>`).join("");
- $("credits").innerHTML=d.credits.map((c,i)=>`<tr><td>${c.client}</td><td>${c.product}</td><td>${money(c.total)}</td><td>${c.paid?"Pagado":"Pendiente"}</td><td>${c.paid?"":`<button class="secondary" onclick="payCredit(${i})">Marcar pagado</button>`}</td></tr>`).join("");
- $("shipping").innerHTML=d.orders.map((o,i)=>`<tr><td>#${i+1}</td><td>${o.client}</td><td>${o.product}</td><td>${o.status}</td><td><button class="secondary" onclick="nextOrder(${i})">Actualizar</button></td></tr>`).join("");
- let sales=d.sales.reduce((a,s)=>a+s.total,0), buy=d.purchases.reduce((a,x)=>a+x.cost,0), cr=d.credits.filter(x=>!x.paid).reduce((a,x)=>a+x.total,0);
- $("sVentas").textContent=money(sales);$("sPedidos").textContent=d.orders.length;$("sClientes").textContent=d.clients.length;$("sCobrar").textContent=money(cr);$("sStock").textContent=d.products.reduce((a,p)=>a+Number(p[2]),0);
- $("ctIn").textContent=money(sales);$("ctBuy").textContent=money(buy);$("ctCr").textContent=money(cr);$("ctRes").textContent=money(sales-buy);
- $("resumen").textContent=`Tienes ${d.orders.length} pedido(s), ${d.sales.length} venta(s) y ${d.credits.filter(x=>!x.paid).length} crédito(s) pendiente(s).`;
-}
-function addProduct(){let n=$("rpName").value.trim(),p=Number($("rpPrice").value),s=Number($("rpStock").value);if(!n||!p)return alert("Completa producto y precio");d.products.push([n,p,s||0]);save();alert("Producto guardado")}
-function addClient(){let n=$("rcName").value.trim();if(!n)return alert("Escribe el nombre");d.clients.push({name:n,phone:$("rcPhone").value,address:$("rcAddress").value,purchases:0,debt:0});save();alert("Cliente guardado")}
-function addSale(){let i=Number($("saleProd").value),q=Number($("saleQty").value),p=d.products[i],client=$("saleClient").value.trim()||"Cliente mostrador";if(!p||q<1||p[2]<q)return alert("Stock insuficiente");let total=p[1]*q;p[2]-=q;d.sales.push({date:new Date().toLocaleString("es-PE"),product:p[0],client,total,type:$("saleType").value});if($("saleType").value==="Crédito")d.credits.push({client,product:p[0],total,paid:false});save();alert("Venta registrada")}
-function addPurchase(){let prov=$("buyProv").value.trim()||"Proveedor",prod=$("buyProd").value.trim();let qty=Number($("buyQty").value),cost=Number($("buyCost").value);if(!prod||qty<1)return alert("Completa los datos");d.purchases.push({date:new Date().toLocaleString("es-PE"),prov,prod,qty,cost});save();alert("Compra registrada")}
-function openOrder(i){selected=i;$("chosen").innerHTML=`<b>${d.products[i][0]}</b> · ${money(d.products[i][1])}`;$("modal").style.display="block"}
-function closeOrder(){$("modal").style.display="none"}
-function sendOrder(){let p=d.products[selected],n=$("oName").value.trim()||"Cliente",size=$("oSize").value,q=Number($("oQty").value);if(q<1)return;let msg=`Hola SPORTS DAIRO 👋%0AQuiero hacer un pedido:%0AProducto: ${encodeURIComponent(p[0])}%0APrecio: ${p[1]}%0ATalla: ${size}%0ACantidad: ${q}%0ANombre: ${encodeURIComponent(n)}%0A¿Me confirman disponibilidad y entrega?`;d.orders.push({date:new Date().toLocaleString("es-PE"),client:n,product:p[0],size,qty:q,status:"Nuevo"});save();location.href="https://wa.me/51910462487?text="+msg}
-function nextOrder(i){let states=["Nuevo","Confirmado","Preparando","Enviado","Entregado","Cancelado"],o=d.orders[i],n=(states.indexOf(o.status)+1)%states.length;o.status=states[n];save()}
-function payCredit(i){d.credits[i].paid=true;save()}
-function exportData(){let blob=new Blob([JSON.stringify(d,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="SPORTS_DAIRO_respaldo.json";a.click()}
-function resetData(){if(confirm("¿Restablecer todos los datos de este navegador?")){localStorage.removeItem(KEY);location.reload()}}
-renderNav();render();
+const input=document.getElementById('search'), cards=[...document.querySelectorAll('.card')], empty=document.getElementById('empty');
+input.addEventListener('input',()=>{
+ const q=input.value.toLowerCase().trim(); let n=0;
+ cards.forEach(c=>{const ok=c.dataset.search.includes(q);c.style.display=ok?'flex':'none';if(ok)n++;});
+ empty.style.display=n?'none':'block';
+});
 </script>
 </body></html>

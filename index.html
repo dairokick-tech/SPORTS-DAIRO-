@@ -1,18 +1,151 @@
-<!doctype html><html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SPORTS DAIRO</title>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPORTS DAIRO | Moda que se mueve contigo.</title>
+<meta name="description" content="SPORTS DAIRO - Zapatillas, ropa y accesorios. Compra por WhatsApp.">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f5f5;color:#111;font-family:Arial,sans-serif}
-header{background:#111;color:white;text-align:center;padding:24px;border-bottom:4px solid #d71920}
-.logo{font-size:30px;font-weight:900}.tag{color:#ddd;margin-top:6px}.wrap{max-width:900px;margin:auto;padding:22px 15px}
-h1{text-align:center}.card{background:white;max-width:420px;margin:20px auto;border-radius:18px;overflow:hidden;box-shadow:0 5px 20px #0002}
-.card img{width:100%;display:block}.info{padding:18px}.name{font-size:21px;font-weight:800}.price{font-size:25px;font-weight:900;color:#d71920;margin:10px 0 16px}
-.btn{display:block;text-align:center;text-decoration:none;background:#d71920;color:#fff;padding:14px;border-radius:12px;font-weight:800;font-size:17px}
-footer{text-align:center;padding:24px;color:#666}
-</style></head><body>
-<header><div class="logo">SPORTS DAIRO</div><div class="tag">Moda que se mueve contigo.</div></header>
-<main class="wrap"><h1>👟 ZAPATILLAS</h1>
-<article class="card"><img src="zapatilla-urb.jpg" alt="Zapatillas URB">
-<div class="info"><div class="name">Zapatillas URB</div><div class="price">S/ 123</div>
-<a class="btn" href="https://wa.me/51910462487?text=Hola%20SPORTS%20DAIRO,%20quiero%20comprar%20las%20Zapatillas%20URB%20de%20S/%20123." target="_blank">📲 Comprar por WhatsApp</a>
-</div></article></main><footer>SPORTS DAIRO · WhatsApp +51 910 462 487</footer></body></html>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#111}
+.top{background:#050505;color:#fff;text-align:center;padding:8px;font-size:13px}
+header{background:#050505;color:#fff;position:sticky;top:0;z-index:5;border-bottom:1px solid #222}
+.nav{max-width:1150px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:18px}
+.logo{height:76px;width:auto;object-fit:contain}
+.brand{font-weight:900;font-size:20px;line-height:1.05} .brand span{color:#e50914}
+.menu{margin-left:auto;display:flex;gap:18px;align-items:center;font-size:14px}
+.menu a{color:#fff;text-decoration:none;font-weight:700}
+.search{max-width:1150px;margin:0 auto;padding:0 16px 14px}
+.searchbox{display:flex;background:#fff;border-radius:7px;overflow:hidden}
+.searchbox input{width:100%;border:0;padding:13px 14px;font-size:15px;outline:0}
+.hero{background:linear-gradient(115deg,#050505,#1a1a1a);color:#fff;padding:38px 16px}
+.hero-inner{max-width:1150px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.hero h1{font-size:clamp(30px,6vw,58px);margin:0 0 10px;font-weight:950;text-transform:uppercase}
+.hero h1 span{color:#e50914} .hero p{font-size:18px;color:#ddd;margin:0 0 18px}
+.btn{display:inline-block;background:#e50914;color:#fff;text-decoration:none;padding:13px 18px;border-radius:6px;font-weight:800}
+.hero-badge{font-size:60px;font-weight:900;color:#e50914;transform:rotate(-7deg)}
+main{max-width:1150px;margin:auto;padding:28px 16px 50px}
+.categories{display:flex;gap:10px;overflow:auto;padding-bottom:20px}
+.cat{background:#fff;border:1px solid #ddd;padding:11px 17px;border-radius:30px;white-space:nowrap;font-weight:800}
+.cat.active{background:#e50914;color:#fff;border-color:#e50914}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}
+.section-head h2{margin:0;font-size:28px} .section-head p{margin:4px 0 0;color:#666}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px #00000012;display:flex;flex-direction:column}
+.photo{height:235px;background:linear-gradient(145deg,#111,#292929);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff}
+.photo span{font-size:72px} .photo small{color:#bbb;margin-top:5px}
+.info{padding:16px} .tag{color:#e50914;font-size:11px;font-weight:900;letter-spacing:1px}
+.card h3{margin:6px 0 4px;font-size:18px} .card p{margin:0 0 12px;color:#666;font-size:13px}
+.prices{display:flex;gap:10px;align-items:center;margin-bottom:14px} del{color:#888;font-size:13px} strong{font-size:21px}
+.buy{display:block;text-align:center;background:#111;color:#fff;text-decoration:none;padding:12px;border-radius:6px;font-weight:800}
+.buy:hover{background:#e50914}
+.empty{display:none;text-align:center;padding:35px;background:#fff;border-radius:10px}
+footer{background:#050505;color:#fff;text-align:center;padding:28px 16px} footer strong{font-size:20px} footer span{color:#e50914}
+@media(max-width:800px){.menu a:not(:last-child){display:none}.grid{grid-template-columns:repeat(2,1fr)}.hero-badge{display:none}.logo{height:62px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.brand{font-size:16px}.nav{gap:8px}}
+</style>
+</head>
+<body>
+<div class="top">🔥 OFERTAS SPORTS DAIRO • Compra fácil por WhatsApp</div>
+<header>
+  <div class="nav">
+    <img class="logo" src="logo.png" alt="SPORTS DAIRO">
+    <div class="brand">SPORTS <span>DAIRO</span><br><small>Moda que se mueve contigo.</small></div>
+    <nav class="menu"><a href="#productos">Zapatillas</a><a href="#productos">Ropa</a><a href="#productos">Accesorios</a><a href="https://wa.me/51910462487" target="_blank">WhatsApp</a></nav>
+  </div>
+  <div class="search"><div class="searchbox"><input id="search" placeholder="¿Qué estás buscando?"></div></div>
+</header>
+
+<section class="hero">
+ <div class="hero-inner">
+  <div><h1>Muévete con <span>estilo.</span></h1><p>Descubre tu próximo par en SPORTS DAIRO.</p><a class="btn" href="#productos">VER PRODUCTOS</a></div>
+  <div class="hero-badge">SD</div>
+ </div>
+</section>
+
+<main>
+ <div class="categories">
+   <div class="cat active">👟 Zapatillas</div><div class="cat">👕 Ropa</div><div class="cat">🎒 Accesorios</div><div class="cat">🔥 Ofertas</div>
+ </div>
+ <section id="productos">
+  <div class="section-head"><div><h2>Zapatillas</h2><p>Precios SPORTS DAIRO con 25% sobre el precio de referencia.</p></div></div>
+  <div class="grid" id="grid">
+    <article class="card" data-search="r18 stellar zapatillas de fútbol hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>R18 Stellar</h3>
+        <p>Zapatillas de Fútbol Hombre</p>
+        <div class="prices"><del>S/ 75.90</del><strong>S/ 94.88</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar R18 Stellar por S/ 94.88. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="r18 new york zapatillas urbanas hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>R18 New York</h3>
+        <p>Zapatillas Urbanas Hombre</p>
+        <div class="prices"><del>S/ 181.90</del><strong>S/ 227.38</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar R18 New York por S/ 227.38. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="renzo renzini rch-wo007 zapatillas casuales hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>Renzo Renzini RCH-WO007</h3>
+        <p>Zapatillas Casuales Hombre</p>
+        <div class="prices"><del>S/ 113.90</del><strong>S/ 142.38</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar Renzo Renzini RCH-WO007 por S/ 142.38. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="renzo renzini rch-wo009 zapatillas casuales hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>Renzo Renzini RCH-WO009</h3>
+        <p>Zapatillas Casuales Hombre</p>
+        <div class="prices"><del>S/ 67.90</del><strong>S/ 84.88</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar Renzo Renzini RCH-WO009 por S/ 84.88. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="r18 kyoto zapatillas urbanas hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>R18 Kyoto</h3>
+        <p>Zapatillas Urbanas Hombre</p>
+        <div class="prices"><del>S/ 117.90</del><strong>S/ 147.38</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar R18 Kyoto por S/ 147.38. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    
+    <article class="card" data-search="r18 mantaro trail zapatillas outdoor hombre">
+      <div class="photo"><span>👟</span><small>Foto del producto</small></div>
+      <div class="info">
+        <div class="tag">NUEVO</div>
+        <h3>R18 Mantaro Trail</h3>
+        <p>Zapatillas Outdoor Hombre</p>
+        <div class="prices"><del>S/ 167.90</del><strong>S/ 209.88</strong></div>
+        <a class="buy" href="https://wa.me/51910462487?text=Hola SPORTS DAIRO, quiero comprar R18 Mantaro Trail por S/ 209.88. ¿Me pueden confirmar tallas y disponibilidad?" target="_blank">📲 Comprar por WhatsApp</a>
+      </div>
+    </article>
+    </div>
+  <div class="empty" id="empty">No encontramos ese producto.</div>
+ </section>
+</main>
+
+<footer><strong>SPORTS <span>DAIRO</span></strong><br><small>Moda que se mueve contigo. • WhatsApp +51 910 462 487</small></footer>
+<script>
+const input=document.getElementById('search'), cards=[...document.querySelectorAll('.card')], empty=document.getElementById('empty');
+input.addEventListener('input',()=>{
+ const q=input.value.toLowerCase().trim(); let n=0;
+ cards.forEach(c=>{const ok=c.dataset.search.includes(q);c.style.display=ok?'flex':'none';if(ok)n++;});
+ empty.style.display=n?'none':'block';
+});
+</script>
+</body></html>

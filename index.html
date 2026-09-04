@@ -56,6 +56,22 @@ footer{background:#080808;color:#fff;text-align:center;padding:24px;margin-top:3
 
 <div class="modal" id="modal"><div class="box"><button class="close" onclick="closeOrder()">✕</button><h2>🛍️ Hacer pedido</h2><div id="chosen"></div><label>Nombre</label><input id="oName"><label>Talla</label><select id="oSize"><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option></select><label>Cantidad</label><input id="oQty" type="number" min="1" value="1"><button class="btn" style="width:100%" onclick="sendOrder()">📲 Enviar por WhatsApp</button></div></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+window.SD_DB = null;
+window.SD_DB_READY = false;
+try {
+  if (window.SUPABASE_URL && window.SUPABASE_PUBLISHABLE_KEY &&
+      !window.SUPABASE_URL.includes("TU_PROYECTO")) {
+    window.SD_DB = window.supabase.createClient(
+      window.SUPABASE_URL,
+      window.SUPABASE_PUBLISHABLE_KEY
+    );
+    window.SD_DB_READY = true;
+  }
+} catch(e) { console.warn("Supabase no configurado", e); }
+</script>
 <script>
 const KEY="SPORTS_DAIRO_V1";
 const seed=[
@@ -76,7 +92,7 @@ function render(){
  $("saleProd").innerHTML=d.products.map((p,i)=>`<option value="${i}">${p[0]} — ${money(p[1])}</option>`).join("");
  $("sales").innerHTML=d.sales.map(s=>`<tr><td>${s.date}</td><td>${s.product}</td><td>${s.client}</td><td>${money(s.total)}</td><td>${s.type}</td></tr>`).join("");
  $("purchases").innerHTML=d.purchases.map(x=>`<tr><td>${x.date}</td><td>${x.prov}</td><td>${x.prod}</td><td>${x.qty}</td><td>${money(x.cost)}</td></tr>`).join("");
- $("orders").innerHTML=d.orders.map((o,i)=>`<tr><td>${o.date}</td><td>${o.client}</td><td>${o.product}</td><td>${o.size}</td><td>${o.qty}</td><td><span class="badge ${o.status==="Entregado"?"green":o.status==="Cancelado"?"red":"yellow"}">${o.status}</span></td><td><button class="secondary" onclick="nextOrder(${i})">Cambiar</button></td></tr>`).join("");
+ $("orders").innerHTML=d.orders.map((o,i)=>`<tr><td>${o.order_code||("#"+(i+1))}</td><td>${o.date}</td><td>${o.client}</td><td>${o.product}</td><td>${o.size}</td><td>${o.qty}</td><td><span class="badge ${o.status==="Entregado"?"green":o.status==="Cancelado"?"red":"yellow"}">${o.status}</span></td><td><button class="secondary" onclick="nextOrder(${i})">Cambiar</button></td></tr>`).join("");
  $("clients").innerHTML=d.clients.map(c=>`<tr><td>${c.name}</td><td>${c.phone}</td><td>${c.address}</td><td>${c.purchases||0}</td><td>${money(c.debt||0)}</td></tr>`).join("");
  $("inventory").innerHTML=d.products.map(p=>`<tr><td>${p[0]}</td><td>${money(p[1])}</td><td>${p[2]}</td><td><span class="badge ${p[2]<=0?"red":p[2]<=3?"yellow":"green"}">${p[2]<=0?"Agotado":p[2]<=3?"Stock bajo":"Disponible"}</span></td></tr>`).join("");
  $("credits").innerHTML=d.credits.map((c,i)=>`<tr><td>${c.client}</td><td>${c.product}</td><td>${money(c.total)}</td><td>${c.paid?"Pagado":"Pendiente"}</td><td>${c.paid?"":`<button class="secondary" onclick="payCredit(${i})">Marcar pagado</button>`}</td></tr>`).join("");
@@ -92,8 +108,50 @@ function addSale(){let i=Number($("saleProd").value),q=Number($("saleQty").value
 function addPurchase(){let prov=$("buyProv").value.trim()||"Proveedor",prod=$("buyProd").value.trim();let qty=Number($("buyQty").value),cost=Number($("buyCost").value);if(!prod||qty<1)return alert("Completa los datos");d.purchases.push({date:new Date().toLocaleString("es-PE"),prov,prod,qty,cost});save();alert("Compra registrada")}
 function openOrder(i){selected=i;$("chosen").innerHTML=`<b>${d.products[i][0]}</b> · ${money(d.products[i][1])}`;$("modal").style.display="block"}
 function closeOrder(){$("modal").style.display="none"}
-function sendOrder(){let p=d.products[selected],n=$("oName").value.trim()||"Cliente",size=$("oSize").value,q=Number($("oQty").value);if(q<1)return;let msg=`Hola SPORTS DAIRO 👋%0AQuiero hacer un pedido:%0AProducto: ${encodeURIComponent(p[0])}%0APrecio: ${p[1]}%0ATalla: ${size}%0ACantidad: ${q}%0ANombre: ${encodeURIComponent(n)}%0A¿Me confirman disponibilidad y entrega?`;d.orders.push({date:new Date().toLocaleString("es-PE"),client:n,product:p[0],size,qty:q,status:"Nuevo"});save();location.href="https://wa.me/51910462487?text="+msg}
-function nextOrder(i){let states=["Nuevo","Confirmado","Preparando","Enviado","Entregado","Cancelado"],o=d.orders[i],n=(states.indexOf(o.status)+1)%states.length;o.status=states[n];save()}
+async function sendOrder(){
+  let p=d.products[selected],n=$("oName").value.trim()||"Cliente",size=$("oSize").value,q=Number($("oQty").value);
+  if(q<1)return alert("Cantidad inválida");
+  if(q>Number(p[2]))return alert("No hay suficiente stock");
+  let code="SD-"+new Date().getFullYear()+"-"+String(Date.now()).slice(-6);
+  let msg=`Hola SPORTS DAIRO 👋%0AQuiero hacer un pedido:%0APedido: ${code}%0AProducto: ${encodeURIComponent(p[0])}%0APrecio: ${p[1]}%0ATalla: ${size}%0ACantidad: ${q}%0ANombre: ${encodeURIComponent(n)}%0A¿Me confirman disponibilidad y entrega?`;
+  let order={order_code:code,date:new Date().toISOString(),client:n,product:p[0],size,qty:q,status:"Nuevo"};
+  if(window.SD_DB_READY){
+    let {error}=await window.SD_DB.from("orders").insert({
+      order_code:code,customer_name:n,product:p[0],size:size,quantity:q,
+      unit_price:Number(p[1]),status:"Nuevo"
+    });
+    if(error){console.error(error);return alert("No se pudo guardar el pedido en la base de datos. Revisa la configuración de Supabase.");}
+  }
+  d.orders.push(order); save();
+  closeOrder();
+  alert("Pedido registrado. Tu código es: "+code);
+  location.href="https://wa.me/51910462487?text="+msg;
+}
+async function trackOrder(){
+  let code=$("trackCode").value.trim().toUpperCase(),box=$("trackResult");
+  if(!code)return;
+  if(!window.SD_DB_READY){box.innerHTML='<div class="panel">La base de datos todavía no está conectada.</div>';return;}
+  box.innerHTML="Consultando…";
+  let {data,error}=await window.SD_DB.rpc("track_order",{p_code:code});
+  if(error || !data || !data.length){box.innerHTML='<div class="panel">No encontramos ese pedido. Revisa el código.</div>';return;}
+  let o=data[0];
+  box.innerHTML=`<div class="panel"><h2>Pedido ${o.order_code}</h2>
+  <p><b>Cliente:</b> ${o.customer_name}</p>
+  <p><b>Producto:</b> ${o.product}</p>
+  <p><b>Cantidad:</b> ${o.quantity}</p>
+  <p><b>Estado:</b> <span class="badge ${o.status==="Entregado"?"green":o.status==="Cancelado"?"red":"yellow"}">${o.status}</span></p>
+  <p><b>Última actualización:</b> ${o.updated_at ? new Date(o.updated_at).toLocaleString("es-PE") : "—"}</p>
+  ${o.tracking_number?`<p><b>Número de seguimiento:</b> ${o.tracking_number}</p>`:""}
+  </div>`;
+}
+async function nextOrder(i){
+  let states=["Nuevo","Confirmado","Preparando","Enviado","Entregado","Cancelado"],o=d.orders[i],n=(states.indexOf(o.status)+1)%states.length;
+  o.status=states[n]; save();
+  if(window.SD_DB_READY && o.order_code){
+    let {error}=await window.SD_DB.from("orders").update({status:o.status}).eq("order_code",o.order_code);
+    if(error) alert("Estado local actualizado, pero no se pudo sincronizar con la base de datos.");
+  }
+}
 function payCredit(i){d.credits[i].paid=true;save()}
 function exportData(){let blob=new Blob([JSON.stringify(d,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="SPORTS_DAIRO_respaldo.json";a.click()}
 function resetData(){if(confirm("¿Restablecer todos los datos de este navegador?")){localStorage.removeItem(KEY);location.reload()}}

@@ -1,37 +1,43 @@
-SPORTS DAIRO — PEDIDOS + RASTREO CON SUPABASE
+SPORTS DAIRO — TIENDA CON CATEGORÍAS, BUSCADOR, SUPABASE Y PAGOS
 
 Incluye:
-- index.html
-- config.js
-- supabase.sql
-- logo.png
-- zapatilla-urb.jpg
+- Tienda pública con categorías: Zapatillas, Ropa y Accesorios.
+- Buscador por nombre/categoría.
+- 20 productos de zapatillas cargados.
+- Registro de productos desde Admin con categoría e imagen opcional.
+- Pedidos por WhatsApp al +51 928 469 185.
+- Pedidos guardados en Supabase.
+- Rastreo público por código de pedido.
+- Yape/Plin manual al 928 469 185.
+- NUEVO: opción Tarjeta Visa/Mastercard mediante checkout web de izipay.
+- Carpeta supabase/functions/izipay-session/ preparada para generar el token de sesión desde backend.
 
-QUÉ HACE:
-1. El cliente hace un pedido.
-2. Se guarda en Supabase con código SD-AAAA-XXXXXX.
-3. Se abre WhatsApp con el código del pedido.
-4. El cliente entra en "Rastrear pedido" y consulta por código.
-5. El administrador cambia el estado.
-6. El estado se sincroniza con la base de datos.
+PAGO CON TARJETA IZYPAY
+La integración usa el SDK web oficial de izipay. Izipay indica que el token de sesión debe generarse desde un backend y que el checkout usa una llave pública/RSA y un token de sesión. No pongas API keys secretas en el navegador.
 
-ACTIVACIÓN:
-1. Crea un proyecto en Supabase.
-2. En SQL Editor pega TODO el contenido de supabase.sql y pulsa Run.
-3. Ve a Project Settings > API.
-4. Copia Project URL y Publishable key.
-5. Pégalos en config.js:
-   SUPABASE_URL = "...";
-   SUPABASE_PUBLISHABLE_KEY = "...";
-6. Sube los 3 archivos web (index.html, config.js) + logo.png + zapatilla-urb.jpg a GitHub.
-7. No pongas nunca una service_role/secret key en config.js.
+ESTADO DE ESTA ENTREGA
+La tienda ya tiene el botón "Visa / Mastercard" y el flujo preparado. Para COBRAR DE VERDAD falta afiliar el comercio a izipay y colocar las credenciales/endpoint de Generate Token en los secrets de una Edge Function de Supabase. No se inventan ni se exponen credenciales.
 
-ADMIN:
-La versión actual conserva el acceso visual admin anterior. Para seguridad real,
-el siguiente paso es cambiar ese acceso por Supabase Auth (usuario administrador
-autenticado), porque una contraseña escrita dentro de index.html puede ser vista
-por quien inspeccione el código.
+PASOS PARA ACTIVAR
+1. Tener comercio/credenciales de izipay.
+2. En Supabase, desplegar la función supabase/functions/izipay-session.
+3. Configurar como secrets: IZIPAY_TOKEN_URL, IZIPAY_API_KEY, IZIPAY_MERCHANT_CODE e IZIPAY_KEY_RSA.
+4. Ajustar el body/headers de la función al formato exacto que entregue izipay para tu comercio y ambiente.
+5. Probar primero en sandbox y luego cambiar a producción.
 
-NOTA:
-La base de datos y el rastreo sí quedan preparados para uso real. El plan Free
-de Supabase tiene límites de uso; no es ilimitado.
+DOCUMENTACIÓN OFICIAL:
+https://developers.izipay.pe/web-core/quickstart/
+https://developers.izipay.pe/products/pay-with-card/
+https://developers.izipay.pe/credentials/
+https://developers.izipay.pe/api/
+
+SUPABASE
+config.js usa la URL del proyecto y la Publishable Key. No colocar nunca una secret/service_role key en el navegador.
+
+IMPORTANTE
+El login admin incluido sigue siendo del lado del navegador. Para producción se recomienda Supabase Auth y RLS restringido por rol.
+
+
+YAPE POR CÓDIGO DE APROBACIÓN
+La tienda ahora usa el SDK Web de izipay con payMethod YAPE_CODE. Al elegir Yape, el total del pedido se envía al checkout de izipay y el cliente ingresa allí su número vinculado a Yape y su código de aprobación. Según la documentación oficial de izipay, esta modalidad es exclusiva del SDK y el monto máximo indicado es S/ 2,000.
+IMPORTANTE: para cobrar en producción todavía debe existir la Edge Function segura `izipay-session` en Supabase y las credenciales de comercio de izipay deben estar configuradas como secretos del backend. No pongas claves secretas en `config.js` ni en GitHub.

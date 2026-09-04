@@ -1,29 +1,18 @@
-SPORTS DAIRO — PAQUETE FINAL EMPRESA
+SPORTS DAIRO — SOLO YAPE + CONTROL DE PRODUCTOS
 
-Incluye:
-- Tienda pública con logo SPORTS DAIRO.
-- Pedidos por WhatsApp.
-- Rastreo de pedidos.
-- Panel privado de administrador.
-- Inventario, clientes, ventas, compras, créditos y envíos.
-- Contabilidad gerencial.
-- NUEVO: Facturas y boletas de venta.
-- NUEVO: Registro de facturas de compra recibidas de proveedores.
-- Cálculo automático de subtotal + IGV + total.
-- Cuentas por cobrar y por pagar para ventas/compras a crédito.
-- Control de pagos de comprobantes.
-- Exportación/respaldo de datos.
-- Supabase preparado para persistencia.
+Actualización:
+- Pago público solo con Yape (sin Izipay).
+- QR de Yape integrado.
+- En REGISTRAR VENTA se puede buscar el producto escribiendo y/o seleccionarlo de una lista.
+- Al seleccionar un producto se muestran precio y stock y se calcula el total según cantidad.
+- En FACTURAS Y BOLETAS DE VENTA también se puede buscar/seleccionar el producto; precio, cantidad, subtotal, IGV y total se calculan automáticamente.
+- En COMPRAS se puede buscar/seleccionar un producto existente y usarlo en el registro.
+- Los datos de gestión se guardan localmente; pedidos se sincronizan con Supabase si la conexión está activa.
+- La emisión fiscal real de SUNAT requiere integración con SUNAT/OSE/PSE y credenciales fiscales seguras.
 
 Acceso administrador:
 Usuario: admin
 Contraseña: Dairo2026!
 
-WhatsApp: +51 928 469 185
 
-IMPORTANTE SOBRE SUNAT:
-El módulo permite registrar y controlar comprobantes, pero la emisión fiscal válida no se debe simular. Para emitir comprobantes electrónicos reales se debe conectar SUNAT directamente o un OSE/PSE autorizado y configurar las credenciales/certificados en backend seguro. No colocar Clave SOL, certificados ni secretos en index.html o GitHub.
-
-Las tablas sales_invoices y purchase_invoices están preparadas en supabase/migrations.sql.
-
-Este paquete es una base de gestión empresarial; la contabilidad y obligaciones tributarias exactas dependen del régimen tributario, actividad, nivel de ingresos y configuración de la empresa. Para presentación oficial ante SUNAT debe validarse con el contador de la empresa.
+VENTAS A CREDITO: tasa mensual configurable, cuotas, primera fecha de vencimiento, cuota fija, interes total, total financiado y registro de pago de cada cuota.

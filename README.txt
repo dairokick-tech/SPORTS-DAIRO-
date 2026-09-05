@@ -1,16 +1,13 @@
-SPORTS DAIRO — SOLO YAPE + CARRITO
+SPORTS DAIRO - CARRITO + YAPE
 
-Esta versión incluye:
-- Solo Yape como método de pago.
-- QR de Yape: qr-yape.png
-- Número Yape: 928 469 185
-- Titular: Jose Carlos Vasquez More
-- Carrito de compras persistente en el navegador.
-- Botón flotante 🛒 Carrito.
-- Agregar varios productos y seguir comprando.
-- Aumentar/disminuir cantidades y eliminar productos.
-- Seleccionar talla por producto dentro del carrito.
-- Resumen completo antes de pagar.
-- Pago con Yape y carga de constancia.
+Actualización:
+- Carrito de compras con cantidades y eliminar productos.
+- Comprar con formulario.
+- Comprar por WhatsApp.
+- WhatsApp directo desde cada producto.
+- Yape como único medio de pago.
+- QR Yape y número 928 469 185.
+- Constancia de Yape antes de confirmar el pago.
+- Mantiene las funciones administrativas y de pedidos existentes.
 
-Para GitHub Pages, sube juntos: index.html, config.js, qr-yape.png, zapatilla-urb.jpg y README.txt.
+Para GitHub Pages: subir/reemplazar index.html, config.js, logo.png, qr-yape.png y zapatilla-urb.jpg en la raíz del repositorio.

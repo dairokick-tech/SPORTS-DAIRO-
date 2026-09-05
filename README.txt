@@ -1,20 +1,25 @@
-SPORTS DAIRO - versión corregida
+SPORTS DAIRO - versión mejorada
 
-Incluye:
-- Carrito conectado a todos los productos.
-- Compra de uno o varios productos.
-- Tallas y cantidades en carrito.
-- Yape como único método de pago.
-- Confirmación de pago y envío del pedido a WhatsApp.
-- Comprobante de gestión/boleta/factura y botón WhatsApp.
-- Edición funcional de ventas, compras, clientes, productos, pedidos, envíos y comprobantes.
-- Logo como favicon/icono y logo visible en la tienda.
-- Imagen de producto por archivo o URL.
+Mejoras principales:
+- Carrito multi-producto real con talla, cantidad, combinación por producto+talla y persistencia.
+- Checkout de carrito completo con Yape y constancia.
+- WhatsApp directo para carrito, productos, pedidos y comprobantes.
+- Compras actualizan stock cuando se selecciona un producto existente.
+- Editar y eliminar productos, ventas, compras, clientes y comprobantes.
+- Gestión de pedidos con estados, pago, agencia, seguimiento y comprobante de envío.
+- Créditos con cuotas y registro de pagos.
+- Dashboard y contabilidad resumida.
+- Backup JSON.
+- Logo como favicon y logo visible.
 
-Credenciales de administrador:
+Credenciales admin:
 Usuario: admin
 Contraseña: Dairo2026!
 
-WhatsApp: +51 928 469 185
+Importante: el comprobante generado es de gestión. Para validez fiscal se requiere integración SUNAT/OSE/PSE.
 
-Importante: el comprobante generado dentro de la web es un comprobante de gestión. Para que una factura sea fiscalmente válida debe integrarse SUNAT/OSE/PSE.
+FACTURACIÓN ELECTRÓNICA OSE/PSE
+- Se agregó la Edge Function supabase/functions/emitir-comprobante.
+- Se agregó la migración supabase/migrations/20260904_facturacion_electronica.sql.
+- La RUTA y TOKEN de NubeFacT deben configurarse como secretos de Supabase, nunca en el navegador.
+- La emisión fiscal requiere además el RUC emisor y una cuenta/ruta/token activos del proveedor.

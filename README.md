@@ -1,26 +1,25 @@
-# SPORTS DAIRO — versión corregida
+# PAGÓYA — tienda online (demo frontend)
 
-Versión preparada para subir a GitHub Pages.
+Incluye:
+- Inicio, buscador y categorías
+- Catálogo responsive
+- Filtros por categoría y orden por precio
+- Carrito funcional en el navegador
+- Modal de inicio de sesión
+- Registro de negocio (demo)
+- Checkout de demostración
+- Diseño responsive para celular y PC
 
-## Incluye
-- Tienda y catálogo
-- Carrito multi-producto
-- Pago únicamente por Yape
-- QR y comprobante de pago
-- Pedidos y rastreo
-- Olva Courier / Shalom
-- Clientes, ventas, compras y créditos
-- Facturas/boletas de gestión
-- Configuración Supabase
-- Respaldo local
+## Uso
+Abre `index.html` en un navegador.
 
-## Corrección importante
-Se eliminó la opción de **Restablecer datos** que borraba `localStorage`. La versión final no incluye esa función destructiva.
-
-Las migraciones de Supabase son incrementales y usan `CREATE TABLE IF NOT EXISTS` / `ADD COLUMN IF NOT EXISTS`. No deben ejecutarse comandos `DROP`, `TRUNCATE` o borrados masivos sobre producción.
-
-## Publicación
-Sube `index.html`, `config.js`, `logo.png`, `qr-yape.png` y `zapatilla-urb.jpg` al repositorio de GitHub Pages, manteniendo las rutas.
-
-## Seguridad
-La clave configurada en `config.js` es una clave publicable. Nunca coloques una `service_role` key en el navegador. Para producción, protege el panel administrativo con Supabase Auth y configura RLS correctamente.
+## Para convertirlo en plataforma real
+Conectar:
+- Backend/API
+- Base de datos
+- Autenticación
+- Pasarela de pagos
+- Gestión de inventario
+- Pedidos y envíos
+- Panel de vendedor
+- Panel administrador
